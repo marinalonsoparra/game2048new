@@ -28,7 +28,6 @@ def game_play():
 
 
 
-
 def random_play():
     grid=init_game(n=4)
     print(grid_to_string_with_size(grid,4))
@@ -53,4 +52,4 @@ def random_play():
     else:
         return 'game over'
 
-
+game_play()
