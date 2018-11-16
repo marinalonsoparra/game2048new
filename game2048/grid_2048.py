@@ -81,70 +81,55 @@ def grid_to_string(grid,long):
     #longitud=len(grid)
     longitud=long
     string=""
-
     row=0
     for j in range(0,2*longitud+1):
-
             if j%2==0:
              for i in range(longitud):
                     string=string+" ==="
-
             if j%2!=0:
-
                 for i in range(0,longitud):
-
                     string=string+"| "+str(grid[row][i])+" "
                 string=string+"|"
                 row+=1
-
             string=string+"\n"
     return string
 
 def long_value(grid):
     long_max=0
     elem_final=""
-
     for row in grid:
         for elem in row:
             if len(str(elem))>long_max:
                 long_max=len(str(elem))
                 elem_final=elem
-
     return long_max,elem_final
+
 
 def grid_to_string_with_size(grid,n):
     #longitud=len(grid)
     longitud=n
     lon_tile,elem=long_value(grid)
-
     string=""
-
-
     tile=""
     for i in range(lon_tile+1):
         tile=tile+"="
-
-
     line=tile*longitud
     line=line+"="
-
-
     row=0
     for j in range(0,(2*longitud)+1):
-
             if j%2 == 0:
                 string =string+line
-
-
             if j%2 != 0:
-
                 for i in range(0,longitud):
-                    string=string+tile_to_string(grid[row][i],lon_tile)
+                    if grid[row][i]==0:
+                        string=string+tile_to_string(' ',lon_tile)
+                    else:
+                        string=string+tile_to_string(grid[row][i],lon_tile)
                 string=string+"|"
                 row+=1
-
             string=string+"\n"
     return string
+
 
 def tile_to_string(element,lon_tile):
     string="|"
@@ -156,11 +141,12 @@ def tile_to_string(element,lon_tile):
         string=string+str(element)+espaces
     return string
 
+
 def long_value_with_theme(grid,theme):
     long_max,elem=long_value(grid) #1024
-
     transform=theme[elem] #1024-> Be
     return len(str(transform))
+
 
 def grid_to_string_with_size_and_theme(grid, theme, size):
     grid_copy=copy.deepcopy(grid)
@@ -170,12 +156,9 @@ def grid_to_string_with_size_and_theme(grid, theme, size):
         for element in row:
             if element==' ' or element=='':
                 element=0
-
             grid_copy[i][j]=theme[element]
             j+=1
         i+=1
-
-
     string=grid_to_string_with_size(grid_copy,size)
 
     return string
@@ -187,11 +170,6 @@ def grid_to_string_with_size_and_theme(grid, theme, size):
 ### fonctionnalité 5
 def get_grid_tile_max(grid):
     return max(get_all_tiles(grid))
-
-
-
-
-
 
 
 

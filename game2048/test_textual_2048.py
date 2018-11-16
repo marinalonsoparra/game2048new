@@ -1,4 +1,3 @@
-### fonctionnalité 3
 from pytest import *
 
 

@@ -11,6 +11,7 @@ from game2048.textual_2048 import *
 
 
 
+
 def game_play():
     n=read_size_grid()
     Themes=read_grid_theme()
@@ -18,8 +19,11 @@ def game_play():
     print(grid_to_string_with_size_and_theme(grid,Themes,n))
     while not is_game_over(grid):
         demande=read_player_command()
-        grid=move_grid(grid,demande)
-        grid=grid_add_new_tile(grid)
+        if move_is_possible(grid,demande):
+            grid=move_grid(grid,demande)
+            grid=grid_add_new_tile(grid)
+        else :
+            print('mouvement impossible')
         print(grid_to_string_with_size_and_theme(grid,Themes,n))
     if is_game_win(grid):
          print('win')
@@ -48,8 +52,16 @@ def random_play():
         grid=grid_add_new_tile(grid)
         print(grid_to_string_with_size(grid,4))
     if is_game_win(grid):
-        return 'win'
+        print('win')
     else:
-        return 'game over'
+        print('game over')
 
-game_play()
+
+
+
+###grid_copy=copy.deepcopy(grid)
+###if undo():
+###    grid=grid_copy
+###
+###def undo(t=False):
+###    return t

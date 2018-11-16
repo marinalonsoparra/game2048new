@@ -19,6 +19,21 @@ def move_possible(grid):
     if move_grid(grid,'b')==grid:
         t[3]=False
     return t
+####
+
+def move_is_possible(grid,demande):
+    t=move_possible(grid)
+    if demande=='g' and t[0]==True:
+        return True
+    elif demande=='d' and t[1]==True:
+        return True
+    elif demande=='h' and t[2]==True:
+        return True
+    elif demande=='b' and t[3]==True:
+        return True
+    else:
+        return False
+
 
 def is_game_over(grid):
     if is_grid_full(grid) and move_possible(grid)==[False,False,False,False]:

@@ -1,13 +1,6 @@
 from game2048.grid_2048 import create_grid
 from pytest import *
-from game2048.grid_2048 import grid_add_new_tile_at_position
-from game2048.grid_2048 import get_value_new_tile
-from game2048.grid_2048 import get_all_tiles
-from game2048.grid_2048 import get_empty_tiles_positions
-from game2048.grid_2048 import get_new_position
-from game2048.grid_2048 import grid_add_new_tile
-from game2048.grid_2048 import grid_get_value
-from game2048.grid_2048 import init_game
+from game2048.grid_2048 import *
 
 def test_create_grid():
     assert create_grid() == [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
@@ -62,12 +55,6 @@ def test_init_game():
     assert len(get_empty_tiles_positions(grid)) == 14
 
 ### fonctionnalité 2
-
-from game2048.grid_2048 import grid_to_string
-from game2048.grid_2048 import long_value
-from game2048.grid_2048 import grid_to_string_with_size
-from game2048.grid_2048 import long_value_with_theme
-from game2048.grid_2048 import grid_to_string_with_size_and_theme
 
 
 def test_grid_to_string():
